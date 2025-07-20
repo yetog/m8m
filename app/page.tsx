@@ -11,6 +11,7 @@ import MindMap from '@/components/MindMap'
 import NodeDetails from '@/components/NodeDetails'
 import { toast } from '@/components/ui/use-toast'
 import { Toaster } from '@/components/ui/toaster'
+import ThemeToggle from '@/components/ThemeToggle'
 
 export default function Home() {
   const [input, setInput] = useState('')
@@ -80,13 +81,18 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col p-4 md:p-8 max-w-7xl mx-auto">
       <header className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">Mind Mapper</h1>
-        <p className="text-gray-600">Generate interactive mind maps from URLs, YouTube videos, or text prompts</p>
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl font-bold mb-2">Mind Mapper</h1>
+            <p className="text-muted-foreground">Generate interactive mind maps from URLs, YouTube videos, or text prompts</p>
+          </div>
+          <ThemeToggle />
+        </div>
       </header>
       
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-1">
-          <div className="bg-white p-6 rounded-lg border shadow-sm">
+          <div className="bg-card p-6 rounded-lg border shadow-sm">
             <Tabs defaultValue="url" onValueChange={handleTabChange}>
               <TabsList className="grid grid-cols-3 mb-4">
                 <TabsTrigger value="url">URL</TabsTrigger>
@@ -121,7 +127,7 @@ export default function Home() {
           </div>
         </div>
         
-        <div className="lg:col-span-2 bg-white rounded-lg border shadow-sm overflow-hidden h-[600px]">
+        <div className="lg:col-span-2 bg-card rounded-lg border shadow-sm overflow-hidden h-[600px]">
           <MindMap data={mindMapData} onNodeClick={handleNodeClick} />
         </div>
       </div>

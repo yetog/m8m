@@ -419,11 +419,11 @@ export default function MindMap({ data, onNodeClick }: MindMapProps) {
   // Mind Map empty state
   if (!data.id || !data.children?.length) {
     return (
-      <div className="h-full w-full flex items-center justify-center bg-white font-system">
+      <div className="h-full w-full flex items-center justify-center bg-card font-system">
         <div className="text-center space-y-3 max-w-[400px] height-auto mx-auto p-8">
-          <div className="h-12 w-12 text-zinc-300 mx-auto mb-6">📄</div>
+          <div className="h-12 w-12 text-muted-foreground mx-auto mb-6">📄</div>
           <h3 className="text-xl font-medium">No Mind Map Yet</h3>
-          <p className="text-sm text-zinc-400 pb-4">
+          <p className="text-sm text-muted-foreground pb-4">
             Enter a URL, YouTube link, or prompt to generate an interactive mind map.
           </p>
         </div>
@@ -432,7 +432,7 @@ export default function MindMap({ data, onNodeClick }: MindMapProps) {
   }
 
   return (
-    <div className={`flex flex-col ${isFullScreen ? 'fixed inset-0 z-50 bg-white' : 'w-full h-full'}`}>
+    <div className={`flex flex-col ${isFullScreen ? 'fixed inset-0 z-50 bg-background' : 'w-full h-full'}`}>
       <div className="flex justify-between p-2 border-b">
         <div className="flex items-center gap-2">
           <Button 
@@ -463,7 +463,7 @@ export default function MindMap({ data, onNodeClick }: MindMapProps) {
             Reset
           </Button>
           <div className="text-sm text-gray-500 ml-2">
-            Zoom: {Math.round(zoomLevel * 100)}%
+            <span className="text-muted-foreground">Zoom: {Math.round(zoomLevel * 100)}%</span>
           </div>
         </div>
         <div className="flex items-center gap-2">
@@ -488,7 +488,7 @@ export default function MindMap({ data, onNodeClick }: MindMapProps) {
       </div>
       <div 
         ref={containerRef} 
-        className={`w-full overflow-auto bg-white p-4 cursor-grab ${isFullScreen ? 'flex-1' : 'h-full'}`}
+        className={`w-full overflow-auto bg-card p-4 cursor-grab ${isFullScreen ? 'flex-1' : 'h-full'}`}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}

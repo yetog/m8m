@@ -4,9 +4,9 @@ import { NodeData, ApiResponse } from '../types/types'
 
 // API endpoints
 const API_ENDPOINTS = {
-  URL: 'http://127.0.0.1:7860/api/v1/run/1e9960df-6b9d-48eb-81c2-26af9e877f50?stream=false',
-  YOUTUBE: 'http://127.0.0.1:7860/api/v1/run/13b817f9-1478-4f5a-8775-c6f4de8019e7?stream=false',
-  PROMPT: 'http://127.0.0.1:7860/api/v1/run/f6081c11-6dc9-4941-8598-f21f97d94e4c?stream=false'
+  URL: `${process.env.LANGFLOW_API_BASE}/api/v1/run/${process.env.URL_ENDPOINT_ID}?stream=false`,
+  YOUTUBE: `${process.env.LANGFLOW_API_BASE}/api/v1/run/${process.env.YT_ENDPOINT_ID}?stream=false`,
+  PROMPT: `${process.env.LANGFLOW_API_BASE}/api/v1/run/${process.env.PROMPT_ENDPOINT_ID}?stream=false`
 }
 
 // Helper function to determine the input type

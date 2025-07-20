@@ -10,20 +10,20 @@ interface NodeDetailsProps {
 export default function NodeDetails({ node }: NodeDetailsProps) {
   if (!node) {
     return (
-      <div className="p-4 border rounded-md bg-gray-50">
-        <p className="text-gray-500 text-sm">Select a node to view details</p>
+      <div className="p-4 border rounded-md bg-muted">
+        <p className="text-muted-foreground text-sm">Select a node to view details</p>
       </div>
     )
   }
 
   return (
-    <div className="p-4 border rounded-md bg-white">
+    <div className="p-4 border rounded-md bg-card">
       <h3 className="text-lg font-medium mb-2">{node.label}</h3>
       {node.details && (
-        <p className="text-sm text-gray-700">{node.details}</p>
+        <p className="text-sm text-card-foreground">{node.details}</p>
       )}
       {!node.details && (
-        <p className="text-sm text-gray-500 italic">No additional details available</p>
+        <p className="text-sm text-muted-foreground italic">No additional details available</p>
       )}
     </div>
   )
